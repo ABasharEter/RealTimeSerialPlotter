@@ -9,7 +9,7 @@ class RealTimePlotter:
     def __init__(self):
         plt.ion()
         self.fig, (self.time_axis,self.freq_axis) = plt.subplots(2)
-        self.fig.suptitle('live updated data', fontsize='14', fontweight='bold')
+        self.fig.suptitle('Real-time updated data', fontsize='14', fontweight='bold')
         self.time_axis.set_title('time data', fontsize='14', fontweight='bold')
         self.time_axis.set_xlabel('time, seconds', fontsize='11', fontstyle='italic')
         self.time_axis.set_ylabel('amplitude, V', fontsize='11', fontstyle='italic')

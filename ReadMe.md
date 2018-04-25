@@ -4,6 +4,8 @@ A small library that will help you plot and visualize numeric data from serial p
 This can be vary helpful when you want to analyze analog data form your Arduino or Respray Pi.
 Also you can save your data to a bzip compressed file and then load it and plot it later or do what ever you want to do with it.
 
+![Plotter example image](./readme_imgs/sample.png)
+
 ## Installation:
 Currently this project is under construction so just download the source files put them in your project.
 

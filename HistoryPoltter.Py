@@ -9,6 +9,7 @@ import pickle
 class HistoryPlotter:
     def __init__(self,saved_filename):
         self.plotter = RealTimePlotter()
+        self.plotter.fig.suptitle('History data', fontsize='14', fontweight='bold')
         self.plotter.fig.subplots_adjust(bottom=0.23,hspace=0.5)
         self.index = 0
         self.saved_filename = saved_filename
