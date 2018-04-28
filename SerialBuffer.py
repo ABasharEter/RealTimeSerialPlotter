@@ -52,8 +52,9 @@ class SerialBuffer:
         self.write_buffer_pos = 0
         
     def default_formater(self,data):
-        return np.float(data.strip())
-
+        data= np.float(data.strip())
+        data = data/1024*5-2.5+0.7/2
+        return data*2
     def start(self):
         if(self.thread is not None):
             raise Exception('The buffering thread already started!')
@@ -63,7 +64,7 @@ class SerialBuffer:
         if(self.save_filename is not None):
             self.all_data = []
             def save_callback(buffer,stats):
-                self.all_data.append({'buffer':buffer,'stats':stats})
+                self.all_data.append({'buffer':np.array(buffer),'stats':stats.copy()})
             self.callbacks.append(save_callback)
 
         self.started = True

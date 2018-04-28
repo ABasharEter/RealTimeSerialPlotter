@@ -20,7 +20,8 @@ class RealTimePlotter:
     def show(self):
         try:
             x = [0]
-            self.time_line, = self.time_axis.plot(x, x)
+            y = [2.6,-2.6]
+            self.time_line, = self.time_axis.plot(y, y)
             self.freq_line, = self.freq_axis.plot(x, x)
             self.fig.canvas.draw()
             self.fig.show()
@@ -30,7 +31,6 @@ class RealTimePlotter:
 
     def plot(self,buffer,stats):
         try:
-            buffer = buffer/1024*5-2.5+0.7/2
             fft = np.log(np.abs(np.fft.rfft(buffer))+1e-8)
             t = np.linspace(0,stats['elapsed_time'],buffer.shape[0])
             f = np.linspace(0,stats['fs'],fft.shape[0])
@@ -43,7 +43,7 @@ class RealTimePlotter:
             self.freq_line.set_ydata(fft)
 
             self.time_axis.relim() 
-            self.time_axis.autoscale_view(True,True,True) 
+            self.time_axis.autoscale_view(True,True,False) 
             self.freq_axis.relim() 
             self.freq_axis.autoscale_view(True,True,True) 
             #self.time_axis.plot(t,buffer)

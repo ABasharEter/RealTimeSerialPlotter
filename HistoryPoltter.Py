@@ -28,6 +28,7 @@ class HistoryPlotter:
     def read_data(self):
         with bz2.BZ2File(self.saved_filename,'r') as f:
             self.data = pickle.load(f)
+            print('Number of chunks',len(self.data) )
         
 
     def loop(self):
@@ -39,7 +40,6 @@ class HistoryPlotter:
             print("Stopping...")
 
     def update(self,val):
-        print(val)
         self.index=int(val)
         self.plotter.plot(self.data[self.index]['buffer'],self.data[self.index]['stats'])
 
